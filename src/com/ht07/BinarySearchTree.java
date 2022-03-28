@@ -72,7 +72,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
      * @return
      */
     public boolean contains(E value) {
-        if (root.isEmpty()) {return false;} // Si el root esta vacio regresar false de una vez
+        if (root.isEmpty()) {return false;} // Si el root esta vacio regresar false de una vez;
         BinaryTree<E> result = locate(root, value); // Posible resultado
         return value.equals(result.value());    // Regresar si el resultado existe
     }

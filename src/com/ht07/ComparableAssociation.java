@@ -1,6 +1,6 @@
 package com.ht07;
 
-public class ComparableAssociation<K extends Comparable<K>, V> extends Association<K,V>{
+public class ComparableAssociation<K extends Comparable<K>, V>  extends Association<K,V> implements Comparable<ComparableAssociation<K,V>>{
 
     /**
      * Crear una asociacion comparable.
@@ -21,9 +21,22 @@ public class ComparableAssociation<K extends Comparable<K>, V> extends Associati
         return this.getKey().compareTo(that.getKey());
     }
 
+    /**
+     * Equals
+     * @param obj
+     * @return
+     */
+    @Override
+    public boolean equals(Object obj) {
+        ComparableAssociation<K,V> that = (ComparableAssociation<K, V>) obj;
+        return that.getKey().equals(this.getKey());
+    }
+
     public String toString() {
         StringBuffer s = new StringBuffer();    // Buffer para ir creando string
         s.append("<ComparableAssociation: " + getKey() + "=" + getValue() + ">");   // Agregar al buffer
         return s.toString();    // Regresar el valor de la string
     }
+
+
 }
