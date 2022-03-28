@@ -4,6 +4,7 @@ public class BinaryTree<E> {
     protected E val;    // Valor a guardar
     protected BinaryTree<E> parent; // Padre de este nodo
     protected BinaryTree<E> left, right;    // Valores de la izquierda y derecha
+    protected Iterator iterator;
 
     /**
      * Crear un arbol vacío
@@ -12,6 +13,7 @@ public class BinaryTree<E> {
         val = null;
         parent = null;
         left = right = this;
+        iterator = new BTOrderIterator(this);
     }
 
     /**
@@ -23,6 +25,7 @@ public class BinaryTree<E> {
         right = left = new BinaryTree<E>();
         setLeft(left);
         setRight(right);
+        iterator = new BTOrderIterator(this);
     }
 
     /**
@@ -37,6 +40,7 @@ public class BinaryTree<E> {
         setLeft(left);
         if (right == null) {right = new BinaryTree<>();}
         setRight(right);
+        iterator = new BTOrderIterator(this);
     }
 
     /**
@@ -119,5 +123,8 @@ public class BinaryTree<E> {
         return parent == null && (val == null && right == this && left == this);
     }
 
+    public Iterator iterator() {
+        return new BTOrderIterator(this);
+    }
 
 }

@@ -1,7 +1,5 @@
 package com.ht07;
 
-import org.junit.Assert;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -37,5 +35,41 @@ public class BinarySearchTreeTest {
         ComparableAssociation<String, HashMap<String, String>> casa = new ComparableAssociation<>("casa", null);
         assertEquals("loger", tree.locate(tree.root, casa).value().getValue().get("FR"));
         assertEquals("casa", tree.locate(tree.root, casa).value().getValue().get("ES"));
+    }
+
+    @Test
+    public void iterator() {
+        BinaryTreeFactory factory = new BinaryTreeFactory();
+        ArrayList<ArrayList<String>> dict = new ArrayList<>();
+        ArrayList<String> house = new ArrayList<>();
+        house.add("house");
+        house.add("casa");
+        house.add("loger");
+        ArrayList<String> dog = new ArrayList<>();
+        dog.add("dog");
+        dog.add("perro");
+        dog.add("chien");
+        ArrayList<String> arbol = new ArrayList<>();
+        arbol.add("tree");
+        arbol.add("arbol");
+        arbol.add("arbre");
+        ArrayList<String> ana = new ArrayList<>();
+        ana.add("ana");
+        ana.add("ana");
+        ana.add("ana");
+
+
+
+        dict.add(house);
+        dict.add(ana);
+        dict.add(arbol);
+        dict.add(dog);
+        BinarySearchTree<ComparableAssociation<String, HashMap<String, String>>> tree = factory.crearArbol("ES", dict);
+
+    //  Probar que el iterator sirve
+        Iterator iterator = tree.root.iterator();
+        while (iterator.hasNext()) {
+           System.out.println(iterator.next());
+      }
     }
 }
