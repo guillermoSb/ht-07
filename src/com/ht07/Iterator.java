@@ -7,13 +7,8 @@ package com.ht07;
  * @param <E>
  */
 public interface Iterator<E> {
-
     public void reset();
-
     public boolean hasNext();
-
     public E get();
-
     public E next();
-
 }
