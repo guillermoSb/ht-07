@@ -21,11 +21,12 @@ public class FileManager {
             bf = new BufferedReader(fr);    // se agrega un cursor de lectura
             String bfRead;                  // linea utilizada para el condicional
             ArrayList<String> temp = new ArrayList<>();
+            int i=0;
             while ((bfRead = bf.readLine()) != null) {
                 String[] dato = bfRead.split(",");
                 temp.add(dato[0].strip().toLowerCase()); temp.add(dato[1].strip().toLowerCase()); temp.add(dato[2].strip().toLowerCase());
-                data.add(temp); 
-                temp.clear();
+                data.add((ArrayList<String>) temp.clone());
+                temp.clear(); i++;
             }
             bf.close(); // se cierra el cursor
             fr.close(); // se cierra el archivo
@@ -49,7 +50,17 @@ public class FileManager {
             bf = new BufferedReader(fr);    // se agrega un cursor de lectura
             String bfRead;                  // linea utilizada para el condicional
             while ((bfRead = bf.readLine()) != null) {
-                data.add(bfRead); // separarlo por palabras?
+                StringBuilder reader = new StringBuilder();
+                String comillaSimple = "'";
+                for (int i = 0; i<bfRead.length(); i++) {
+                    if(Character.isLetter(bfRead.charAt(i))||bfRead.charAt(i)==comillaSimple.charAt(0)){
+                        reader.append(bfRead.charAt(i));
+                    } else {
+                        data.add(reader.toString());
+                        data.add(bfRead.charAt(i)+"");
+                        reader.setLength(0);
+                    }
+                }
             }
             bf.close(); // se cierra el cursor
             fr.close(); // se cierra el archivo
