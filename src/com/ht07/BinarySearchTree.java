@@ -100,4 +100,14 @@ public class BinarySearchTree<E extends Comparable<E>> {
      */
     public int getCount() {return  this.count;}
 
+    @Override
+    public String toString() {
+        StringBuffer buffer = new StringBuffer();
+        Iterator iterator = this.root.iterator();
+        while(iterator.hasNext()) {
+            buffer.append(iterator.next().toString() + "\n");
+        }
+        return buffer.toString();
+    }
+
 }

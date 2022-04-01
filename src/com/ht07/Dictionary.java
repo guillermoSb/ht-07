@@ -14,6 +14,9 @@ public class Dictionary {
         this.diccionario = dict;
         this.idiomaOrigen = idiomaOrigen;
         this.idiomaTrad = idiomaTrad;
+        System.out.println("Idioma de origen: " + this.idiomaOrigen);
+        System.out.println("Diccionario impreso en in-order:");
+        System.out.println(this.diccionario);
     }
 
     public BinarySearchTree<ComparableAssociation<String, HashMap<String, String>>> getDictionary() {

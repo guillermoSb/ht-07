@@ -34,7 +34,7 @@ public class ComparableAssociation<K extends Comparable<K>, V>  extends Associat
 
     public String toString() {
         StringBuffer s = new StringBuffer();    // Buffer para ir creando string
-        s.append("<ComparableAssociation: " + getKey() + "=" + getValue() + ">");   // Agregar al buffer
+        s.append(getKey() + "=" + getValue());   // Agregar al buffer
         return s.toString();    // Regresar el valor de la string
     }
 
