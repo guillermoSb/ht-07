@@ -2,6 +2,12 @@ package com.ht07;
 
 import java.util.Stack;
 
+/**
+ * Iterator de ordenamiento de árboles binarios, implementa la infertaz Iterator.
+ * Se puede utilizar con distintos tipos de datos.
+ * @author Guillermo Santos
+ * @param <E> Genérico
+ */
 public class BTOrderIterator<E> implements Iterator<E> {
     protected BinaryTree<E> root;   // root of the tree
     protected Stack<BinaryTree<E>> todo; // Stack of unvisited nodes

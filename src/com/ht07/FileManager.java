@@ -5,9 +5,18 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
+/**
+ * Manejo de archivo de texto
+ * @author Mariel Guamuche
+ */
 public class FileManager {
     private FileManager(){}
 
+    /**
+     * Realiza el arreglo de arreglo de las palabras leídas
+     * @param nombreArchivo Archivo donde se encuentran las palabras del diccionario
+     * @return arreglo de arreglo stirng
+     */
     public static ArrayList<ArrayList<String>> cargarArchivoDiccionario(String nombreArchivo) {
         ArrayList<ArrayList<String>> data = new ArrayList<>();
         File file;          // archivo de texto 
@@ -35,8 +44,13 @@ public class FileManager {
         } 
 
         return data; // retorno de la lista info con los elementos leídos.
-    }    
+    }
 
+    /**
+     * Acomoda los datos en un arreglo string
+     * @param nombreArchivo Archivo con enunciado
+     * @return ArrayList
+     */
     public static ArrayList<String> cargarArchivoEnunciado(String nombreArchivo) {
         ArrayList<String> data = new ArrayList<>();
         File file;          // archivo de texto 
@@ -54,11 +68,11 @@ public class FileManager {
                 String comillaSimple = "'";
                 for (int i = 0; i<bfRead.length(); i++) {
                     if(Character.isLetter(bfRead.charAt(i))||bfRead.charAt(i)==comillaSimple.charAt(0)){
-                        reader.append(bfRead.charAt(i));
+                        reader.append(bfRead.charAt(i)); // concatenacion para crear palabra
                     } else {
-                        data.add(reader.toString());
-                        data.add(bfRead.charAt(i)+"");
-                        reader.setLength(0);
+                        data.add(reader.toString()); // al ser otro caracter, se agrega la palabra reader
+                        data.add(bfRead.charAt(i)+""); // se agrega el caracter no alfabetico
+                        reader.setLength(0); // se "vacia" el StringBuilder
                     }
                 }
             }

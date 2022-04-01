@@ -1,5 +1,8 @@
 package com.ht07;
-
+/**
+ * Asociación para valores y llave para el diccionario. Utilizado para ordenamiento de datos
+ * @author Guillermo Santos
+ * */
 public class Association<K, V> {
     protected K key;    // Llave para la asociacion
     protected V value;  // Valor para la asociacion

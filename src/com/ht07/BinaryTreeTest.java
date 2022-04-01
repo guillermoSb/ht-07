@@ -5,7 +5,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
+/**
+ * Pruebas de operaciones básicas de la clase BinaryTree
+ * @author Guillermo Santos
+ */
 public class BinaryTreeTest {
 
 

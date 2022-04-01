@@ -1,5 +1,10 @@
 package com.ht07;
 
+/**
+ * Estructura de almacenamiento jerárquico de un árbol binario básico.
+ * @author Guillermo Santos
+ * @param <E>
+ */
 public class BinaryTree<E> {
     protected E val;    // Valor a guardar
     protected BinaryTree<E> parent; // Padre de este nodo
@@ -123,6 +128,10 @@ public class BinaryTree<E> {
         return parent == null && (val == null && right == this && left == this);
     }
 
+    /**
+     * Retorna el iterador del árbol ya ordenado.
+     * @return Iterator
+     */
     public Iterator iterator() {
         return new BTOrderIterator(this);
     }

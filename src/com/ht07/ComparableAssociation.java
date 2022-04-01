@@ -1,5 +1,12 @@
 package com.ht07;
 
+/**
+ * Clase para comparación entre asociaciones.
+ * Utilizada principalmente para la asignación de posiciones para el BinarySearchTree
+ * @author Guillermo Santos
+ * @param <K>
+ * @param <V>
+ */
 public class ComparableAssociation<K extends Comparable<K>, V>  extends Association<K,V> implements Comparable<ComparableAssociation<K,V>>{
 
     /**

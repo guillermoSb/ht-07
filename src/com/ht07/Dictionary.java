@@ -4,12 +4,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
 
+/**
+ * Diccionario
+ * @author Guillermo Santos
+ * @author Mariel Guamuche
+ */
 public class Dictionary {    
-    private String idiomaOrigen;
-    private String idiomaTrad;
+    private String idiomaOrigen; // idioma base del diccionario
+    private String idiomaTrad;   // idioma asociado para la traducción
     private BinarySearchTree<ComparableAssociation<String, HashMap<String, String>>> diccionario; /* arbol donde se almacena el diccionario */
-    private ComparableAssociation<String, HashMap<String, String>> palabra;
+    private ComparableAssociation<String, HashMap<String, String>> palabra; // asociación comparable para encontrar la asociación en el árbol del diccionario
 
+    /**
+     * Constructor
+     * Crea el objeto de tipo diccionario así como indica el tipo de idioma junto a los valores asociados
+     * @param dict diccionario tipo BinarySearchTree
+     * @param idiomaOrigen String idioma base
+     * @param idiomaTrad String idioma a traducir
+     */
     public Dictionary(BinarySearchTree<ComparableAssociation<String, HashMap<String, String>>> dict, String idiomaOrigen, String idiomaTrad) {
         this.diccionario = dict;
         this.idiomaOrigen = idiomaOrigen;
@@ -19,14 +31,27 @@ public class Dictionary {
         System.out.println(this.diccionario);
     }
 
+    /**
+     * Retorno del diccionario implementado
+     * @return
+     */
     public BinarySearchTree<ComparableAssociation<String, HashMap<String, String>>> getDictionary() {
         return this.diccionario;
     }
 
+    /***
+     * Retorna el valor del idioma de origen del diccionario
+     * @return
+     */
     public String getIdiomaOrigen() {
-        return idiomaOrigen;
+        return this.idiomaOrigen;
     }
 
+    /**
+     * Traduce las palabras de un texto en base al diccionario, en caso de no encontrar la palabra se coloca entre asteriscos
+     * @param enunciado Enunciado que se desea traducir
+     * @return String con oración traducida
+     */
     public String traducir(ArrayList<String> enunciado){
         StringBuilder traduccion = new StringBuilder();
         
@@ -45,6 +70,11 @@ public class Dictionary {
         return traduccion.toString();
     }
 
+    /**
+     * Válida que la palabra esté definida en el diccionario
+     * @param palabra String de palabra a buscar en diccionario
+     * @return true-> la palabra esta definida, false -> la palabra no esta definida
+     */
     private boolean existe(String palabra) {
         this.palabra = new ComparableAssociation<>(palabra, null);        
         return diccionario.contains(this.palabra);

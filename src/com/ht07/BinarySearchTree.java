@@ -1,7 +1,10 @@
 package com.ht07;
 
 import java.util.Comparator;
-
+/**
+ * Clase para modelado para organización y búsqueda de datos jerárquicamente.
+ * @author Guillermo Santos
+ * */
 public class BinarySearchTree<E extends Comparable<E>> {
     BinaryTree<E> root; // Root para este arbol binario
     protected final BinaryTree<E> EMPTY = new BinaryTree<E>();  // Crear un arbol empty
@@ -21,7 +24,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
      * Localizar el nodo en donde se debe de insertar el valor
      * @param root
      * @param value
-     * @return
+     * @return BinaryTree
      */
     public BinaryTree<E> locate(BinaryTree<E> root, E value) {
         E rootValue = root.value();
@@ -70,7 +73,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
     /**
      * Saber si un valor está en la colección
      * @param value
-     * @return
+     * @return true-> el valor está en la colección, false-> el valor no está en la colección
      */
     public boolean contains(E value) {
         if (root.isEmpty()) {return false;} // Si el root esta vacio regresar false de una vez;
@@ -82,7 +85,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
     /**
      * Obtener el valor previo a un nodo
      * @param root
-     * @return
+     * @return BinaryTree<E>
      */
     public BinaryTree<E> predecessor(BinaryTree<E> root) {
         if (root.isEmpty()) {return null;}  // No debe estar vacio
@@ -100,6 +103,10 @@ public class BinarySearchTree<E extends Comparable<E>> {
      */
     public int getCount() {return  this.count;}
 
+    /**
+     * Muestra el contenido del arbol
+     * @return
+     */
     @Override
     public String toString() {
         StringBuffer buffer = new StringBuffer();
@@ -109,5 +116,4 @@ public class BinarySearchTree<E extends Comparable<E>> {
         }
         return buffer.toString();
     }
-
 }

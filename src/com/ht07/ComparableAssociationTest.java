@@ -3,6 +3,10 @@ package com.ht07;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Pruebas de la clase ComparableAssociation.
+ * @author Guillermo Santos
+ */
 public class ComparableAssociationTest {
 
     @Test
