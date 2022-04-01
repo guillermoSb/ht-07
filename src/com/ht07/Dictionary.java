@@ -14,6 +14,10 @@ public class Dictionary {
         this.diccionario = dict;
         this.idiomaOrigen = idiomaOrigen;
         this.idiomaTrad = idiomaTrad;
+        Iterator iterator = diccionario.root.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
     }
 
     public BinarySearchTree<ComparableAssociation<String, HashMap<String, String>>> getDictionary() {
@@ -32,6 +36,7 @@ public class Dictionary {
                 traduccion.append(string);
             } else {
                if(existe(string.toLowerCase())==true){
+                   System.out.println("diccionario contiene!");
                    this.palabra = new ComparableAssociation<>(string.toLowerCase(), null);
                    traduccion.append(this.diccionario.locate(this.diccionario.root, palabra).value().getValue().get(this.idiomaTrad));
                } else {

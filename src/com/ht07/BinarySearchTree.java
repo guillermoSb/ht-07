@@ -26,8 +26,9 @@ public class BinarySearchTree<E extends Comparable<E>> {
     public BinaryTree<E> locate(BinaryTree<E> root, E value) {
         E rootValue = root.value();
         BinaryTree<E> node;
+
         // Verificar si el valor esta en el root
-        if (rootValue == value) {return root;}
+        if (rootValue.equals(value)) {return root;}
         // Comparar el valor del root
         if (ordering.compare(rootValue, value) < 0) {
             node = root.right();    // Asignar el hijo a la izquierda
@@ -98,7 +99,5 @@ public class BinarySearchTree<E extends Comparable<E>> {
      * @return
      */
     public int getCount() {return  this.count;}
-
-
 
 }

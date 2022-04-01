@@ -72,4 +72,29 @@ public class BinarySearchTreeTest {
            System.out.println(iterator.next());
       }
     }
+
+    @Test
+    public void testFileTranslate() {
+        ArrayList<ArrayList<String>> dictionaryWords = new ArrayList<>();
+        dictionaryWords = FileManager.cargarArchivoDiccionario("diccionario.txt");
+        ArrayList<String> translatePhrase = FileManager.cargarArchivoEnunciado("textoES.txt");
+        assertTrue(!translatePhrase.isEmpty());
+        BinaryTreeFactory treeBase = new BinaryTreeFactory();
+        BinarySearchTree<ComparableAssociation<String, HashMap<String, String>>> tree = treeBase.crearArbol("ES", dictionaryWords);
+        ComparableAssociation<String, HashMap<String, String>> tarea = new ComparableAssociation<>("tarea", null);
+        Iterator iterator = tree.root.iterator();
+        assertTrue(tree.contains(tarea));;
+
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
